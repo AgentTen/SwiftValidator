@@ -39,7 +39,7 @@ open class ValidationRule {
      */
     open func validateField() -> ValidationError? {
         return rules.filter{
-            return !$0.validate(field.validationText ?? "")
+            return !$0.validate(field.validationText )
             }.map{ rule -> ValidationError in return ValidationError(field: self.field, errorLabel:self.errorLabel, error: rule.errorMessage()) }.first
     }
 }
